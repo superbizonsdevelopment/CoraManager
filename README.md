@@ -4,17 +4,18 @@
 
 ```
 {
-  "Admin": {
-    "Name": "",
-    "Password": "",
-    "Email": "",
-    "Permissions": 5,
-    "Orders":[],
+  "Admin":
+  {
+    "Name":"Admin",
+    "Password":"1234",
+    "Email":"",
+    "Permissions":"",
+    "Orders":null
   },
-  "Mail": {
-    "Host": "mail.google.com",
-    "Username": "superbizonsdevelopment@gmail.com",
-    "Password": "example-password",
-  },
+  "Mail":{
+    "Host":"mail.google.com",
+    "Username":"superbizonsdevelopment@gmail.com",
+    "Password":"example-password"
+  }
 }
 ```
