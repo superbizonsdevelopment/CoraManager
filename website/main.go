@@ -1,10 +1,13 @@
 package main
 
 import (
-	"SuperbizonsDevelopment/coramanager/website/manager"
 	"log"
 	"net/http"
 	"os"
+
+	api "github.com/superbizonsdevelopment/CoraManager/api"
+
+	"./manager"
 
 	"./handler"
 )
@@ -32,26 +35,33 @@ func main() {
 		}
 		log.Println("config.json file successfully created!")
 	}
-	/*
-		log.Println("Connecting to database.")
-		err = manager.ConnectToDatabase()
 
-		if err != nil {
-			log.Println("Error: ", err.Error())
-		}
+	log.Println("Connecting to database.")
+	err = manager.ConnectToDatabase()
 
-		log.Println("Successfully connected with database!")
-	*/
+	if err != nil {
+		log.Println("Error: ", err.Error())
+	}
+
+	log.Println("Successfully connected with database!")
+
 	log.Println("Loading Configuration file!")
 
-	configuration, err := manager.LoadConfiguration()
+	_, err = manager.LoadConfiguration()
 
 	if err != nil {
 		log.Println("Error: ", err.Error())
 		return
 	}
-	log.Println(configuration.Admin.Name)
+
 	log.Println("Successfully loaded configuration file!")
+
+	u := api.User{"Antoni Bednarski", "XDD", "antoni.p.bednarski@gmail.com", "admin", nil}
+	err = manager.SendMail(&u)
+
+	if err != nil {
+		log.Println("Error", err.Error())
+	}
 
 	mux := http.NewServeMux()
 

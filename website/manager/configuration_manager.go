@@ -4,23 +4,25 @@ import (
 	"encoding/json"
 	"io/ioutil"
 
-	"../basic"
+	"github.com/superbizonsdevelopment/CoraManager/api"
 )
 
-func LoadConfiguration() (*basic.Configuration, error) {
+var (
+	Configuration *api.Configuration
+)
+
+func LoadConfiguration() (*api.Configuration, error) {
 	configurationFile, err := ioutil.ReadFile("./config.json")
 
 	if err != nil {
-		return &basic.Configuration{}, err
+		return &api.Configuration{}, err
 	}
 
-	configuration := &basic.Configuration{}
-
-	err = json.Unmarshal(configurationFile, &configuration)
+	err = json.Unmarshal(configurationFile, &Configuration)
 
 	if err != nil {
-		return configuration, err
+		return Configuration, err
 	}
 
-	return configuration, nil
+	return Configuration, nil
 }

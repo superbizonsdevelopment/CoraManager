@@ -1,0 +1,15 @@
+{
+  "Admin":
+  {
+    "Name":"Admin",
+    "Password":"1234",
+    "Email":"",
+    "Permissions":"",
+    "Orders":null
+  },
+  "Mail":{
+    "Host":"",
+    "Username":"",
+    "Password":""
+  }
+}

@@ -6,14 +6,15 @@ import (
 
 	"github.com/sendgrid/sendgrid-go"
 	"github.com/sendgrid/sendgrid-go/helpers/mail"
-
-	"../basic"
+	api "github.com/superbizonsdevelopment/CoraManager/api"
 )
 
-func SendMail(user *basic.User) error {
-	from := mail.NewEmail("Example User", "test@example.com")
+func SendMail(user *api.User) error {
+	configuration, err := LoadConfiguration()
+
+	from := mail.NewEmail("SuperbizonsDevelopment", configuration.Mail.Username)
 	subject := "TestTopic"
-	to := mail.NewEmail("Example User", "test@example.com")
+	to := mail.NewEmail(user.Name, user.Email)
 	plainTextContent := "and easy to do anywhere, even with Go"
 	htmlContent := "<strong>and easy to do anywhere, even with Go</strong>"
 	message := mail.NewSingleEmail(from, subject, to, plainTextContent, htmlContent)
