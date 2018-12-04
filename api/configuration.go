@@ -1,4 +1,4 @@
-package basic
+package api
 
 type Configuration struct {
 	Admin *User `json:"Admin"`

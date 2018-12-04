@@ -1,4 +1,4 @@
-package basic
+package api
 
 type Order struct {
 	Name          string
