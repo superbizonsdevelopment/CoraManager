@@ -12,10 +12,9 @@
     "Orders":[],
   },
   "Mail": {
-    "Email": "superbizonsdevelopment@gmail.com",
     "Host": "mail.google.com",
-    "Username": "",
-    "Password": "",
+    "Username": "superbizonsdevelopment@gmail.com",
+    "Password": "example-password",
   },
 }
 ```
