@@ -13,7 +13,7 @@ func main() {
 
 	log.Println("Starting Cora Manager Website")
 
-	_, err = os.Stat("website.db")
+	_, err := os.Stat("website.db")
 
 	if os.IsNotExist(err) {
 		_, err = os.Create("website.db")
@@ -21,6 +21,16 @@ func main() {
 			log.Println("Error: ", err.Error())
 		}
 		log.Println("website.db file successfully created!")
+	}
+
+	_, err = os.Stat("config.json")
+
+	if os.IsNotExist(err) {
+		_, err = os.Create("config.json")
+		if err != nil {
+			log.Println("Error: ", err.Error())
+		}
+		log.Println("config.json file successfully created!")
 	}
 
 	log.Println("Connecting to database.")
@@ -38,5 +48,5 @@ func main() {
 
 	mux.Handle("/assets/", http.StripPrefix("/assets/", http.FileServer(http.Dir("assets"))))
 
-	http.ListenAndServe(":3000", mux)
+	http.ListenAndServe(":5000", mux)
 }

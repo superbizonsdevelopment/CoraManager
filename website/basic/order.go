@@ -6,5 +6,4 @@ type Order struct {
 	Purchaser     *User
 	CreatedAtDate string
 	Status        string
-	IsDone        bool
 }
