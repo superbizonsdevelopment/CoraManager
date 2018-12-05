@@ -35,16 +35,16 @@ func main() {
 		}
 		log.Println("config.json file successfully created!")
 	}
+	/*
+		log.Println("Connecting to database.")
+		err = manager.ConnectToDatabase()
 
-	log.Println("Connecting to database.")
-	err = manager.ConnectToDatabase()
+		if err != nil {
+			log.Println("Error: ", err.Error())
+		}
 
-	if err != nil {
-		log.Println("Error: ", err.Error())
-	}
-
-	log.Println("Successfully connected with database!")
-
+		log.Println("Successfully connected with database!")
+	*/
 	log.Println("Loading Configuration file!")
 
 	_, err = manager.LoadConfiguration()
@@ -56,7 +56,7 @@ func main() {
 
 	log.Println("Successfully loaded configuration file!")
 
-	u := api.User{"Antoni Bednarski", "XDD", "antoni.p.bednarski@gmail.com", "admin", nil}
+	u := api.User{"Moja Mama", "XDD", "rybka@mailinator.com", "admin", nil}
 	err = manager.SendMail(&u)
 
 	if err != nil {

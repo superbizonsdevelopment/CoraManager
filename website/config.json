@@ -8,8 +8,9 @@
     "Orders":null
   },
   "Mail":{
-    "Host":"",
-    "Username":"",
-    "Password":""
+    "Host":"mail.sendgrid.com",
+    "Username": "superbizonsdevelopment",
+    "Email":"contact@superbizonsdevelopment.com",
+    "Password":"example-password"
   }
 }
